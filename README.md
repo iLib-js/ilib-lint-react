@@ -55,6 +55,14 @@ has the ability to parse regular javascript as well as JSX syntax. You
 should use the JSParser only if you want strict Javascript syntax which
 throws exceptions if the file attempts to use JSX syntax.
 
+All parsers produce an array of 2 intermediate representations:
+
+1. Either the abstract syntax tree of the file or an array of Resource
+   instances in the estree format. This has the type "ast-jstree".
+1. The original text of the file as a string, which can be used for
+   producing highlights or auto-fixing problems. This has the type
+   "string".
+
 ## Rules
 
 The following rules apply to any resources from any file type, but are
@@ -87,6 +95,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ## Release Notes
+
+### v1.3.0
+
+- Return the entire file's contents as the second intermediate
+  representation.
+    - The purpose is to be able to produce snippets of the original
+      file for highlights
+    - Also, with the entire file available, it is possible to auto-fix
+      some problems without affecting the formatting of the rest
+      of the file.
 
 ### v1.2.0
 
