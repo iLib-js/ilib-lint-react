@@ -220,18 +220,20 @@ class PropertiesParser extends Parser {
      * of the properties file
      */
     parse() {
-        let sourceStrings = {}, targetStrings;
+        let sourceStrings = {}, targetData, targetStrings, sourceData;
         let res, resources = [];
 
         if (this.path) {
-            const targetData = fs.readFileSync(this.path, "utf-8");
+            targetData = fs.readFileSync(this.path, "utf-8");
             targetStrings = this.parseString(targetData);
         }
 
         if (this.sourcePath) {
-            const sourceData = fs.readFileSync(this.sourcePath, "utf-8");
+            sourceData = fs.readFileSync(this.sourcePath, "utf-8");
             sourceStrings = this.parseString(sourceData);
         }
+
+        const data = targetData || sourceData;
 
         if (targetStrings) {
             for (const id in targetStrings) {
@@ -279,11 +281,18 @@ class PropertiesParser extends Parser {
             }
         }
 
-        return [new IntermediateRepresentation({
-            type: "resource",
-            ir: resources,
-            filePath: this.path || this.sourcePath
-        })];
+        return [
+            new IntermediateRepresentation({
+                type: "resource",
+                ir: resources,
+                filePath: this.path || this.sourcePath
+            }),
+            new IntermediateRepresentation({
+                type: "string",
+                ir: data,
+                filePath: this.path || this.sourcePath
+            })
+        ];
     }
 
     getExtensions() {

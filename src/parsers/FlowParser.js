@@ -65,7 +65,14 @@ class FlowParser extends Parser {
      * of the jsx file
      */
     parse() {
-        return [this.parseString(this.data, this.path)];
+        return [
+            this.parseString(this.data, this.path),
+            new IntermediateRepresentation({
+                type: "string",
+                ir: this.data,
+                filePath: this.path
+            })
+        ];
     }
 
     getExtensions() {

@@ -20,7 +20,7 @@ import { ResourceString } from 'ilib-tools-common';
 
 import JSXParser from '../src/parsers/JSXParser.js';
 
-import { Result } from 'i18nlint-common';
+import { Result, IntermediateRepresentation } from 'i18nlint-common';
 
 describe("testJSXParser", () => {
     test("JSXParserConstructorEmpty", () => {
@@ -133,6 +133,25 @@ describe("testJSXParser", () => {
         const actualSimplified = JSON.parse(JSON.stringify(actual));
 
         expect(actualSimplified).toMatchSnapshot();
+    });
+
+    test("JSX parse of real file", () => {
+        expect.assertions(7);
+
+        const parser = new JSXParser({
+            filePath: "./test/testfiles/testfile2.jsx"
+        });
+        expect(parser).toBeTruthy();
+
+        const actual = parser.parse();
+        expect(actual).toBeTruthy();
+        expect(Array.isArray(actual)).toBeTruthy();
+        expect(actual.length).toBe(2);
+
+        expect(actual[0] instanceof IntermediateRepresentation).toBeTruthy();
+        expect(actual[1] instanceof IntermediateRepresentation).toBeTruthy();
+
+        expect(actual).toMatchSnapshot();
     });
 });
 

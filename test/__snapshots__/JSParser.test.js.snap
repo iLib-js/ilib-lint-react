@@ -1,5 +1,545 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`testJSParser JS parse of real file 1`] = `
+[
+  IntermediateRepresentation {
+    "filePath": "./test/testfiles/testfile2.js",
+    "ir": Node {
+      "body": [
+        Node {
+          "end": 31,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 31,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 0,
+              "line": 1,
+            },
+          },
+          "source": Node {
+            "end": 30,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 30,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 23,
+                "line": 1,
+              },
+            },
+            "raw": "'react'",
+            "start": 23,
+            "type": "Literal",
+            "value": "react",
+          },
+          "specifiers": [
+            Node {
+              "end": 17,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 17,
+                  "line": 1,
+                },
+                "start": Position {
+                  "column": 7,
+                  "line": 1,
+                },
+              },
+              "local": Node {
+                "end": 17,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 17,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 12,
+                    "line": 1,
+                  },
+                },
+                "name": "React",
+                "start": 12,
+                "type": "Identifier",
+              },
+              "start": 7,
+              "type": "ImportNamespaceSpecifier",
+            },
+          ],
+          "start": 0,
+          "type": "ImportDeclaration",
+        },
+        Node {
+          "body": Node {
+            "body": [
+              Node {
+                "computed": false,
+                "end": 138,
+                "key": Node {
+                  "end": 91,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 19,
+                      "line": 4,
+                    },
+                    "start": Position {
+                      "column": 4,
+                      "line": 4,
+                    },
+                  },
+                  "name": "getSourceString",
+                  "start": 76,
+                  "type": "Identifier",
+                },
+                "kind": "method",
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 5,
+                    "line": 6,
+                  },
+                  "start": Position {
+                    "column": 4,
+                    "line": 4,
+                  },
+                },
+                "start": 76,
+                "static": false,
+                "type": "MethodDefinition",
+                "value": Node {
+                  "async": false,
+                  "body": Node {
+                    "body": [
+                      Node {
+                        "argument": Node {
+                          "computed": false,
+                          "end": 131,
+                          "loc": SourceLocation {
+                            "end": Position {
+                              "column": 35,
+                              "line": 5,
+                            },
+                            "start": Position {
+                              "column": 15,
+                              "line": 5,
+                            },
+                          },
+                          "object": Node {
+                            "end": 115,
+                            "loc": SourceLocation {
+                              "end": Position {
+                                "column": 19,
+                                "line": 5,
+                              },
+                              "start": Position {
+                                "column": 15,
+                                "line": 5,
+                              },
+                            },
+                            "start": 111,
+                            "type": "ThisExpression",
+                          },
+                          "optional": false,
+                          "property": Node {
+                            "end": 131,
+                            "loc": SourceLocation {
+                              "end": Position {
+                                "column": 35,
+                                "line": 5,
+                              },
+                              "start": Position {
+                                "column": 20,
+                                "line": 5,
+                              },
+                            },
+                            "name": "getSourceString",
+                            "start": 116,
+                            "type": "Identifier",
+                          },
+                          "start": 111,
+                          "type": "MemberExpression",
+                        },
+                        "end": 132,
+                        "loc": SourceLocation {
+                          "end": Position {
+                            "column": 36,
+                            "line": 5,
+                          },
+                          "start": Position {
+                            "column": 8,
+                            "line": 5,
+                          },
+                        },
+                        "start": 104,
+                        "type": "ReturnStatement",
+                      },
+                    ],
+                    "end": 138,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 5,
+                        "line": 6,
+                      },
+                      "start": Position {
+                        "column": 22,
+                        "line": 4,
+                      },
+                    },
+                    "start": 94,
+                    "type": "BlockStatement",
+                  },
+                  "end": 138,
+                  "expression": false,
+                  "generator": false,
+                  "id": null,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 5,
+                      "line": 6,
+                    },
+                    "start": Position {
+                      "column": 19,
+                      "line": 4,
+                    },
+                  },
+                  "params": [],
+                  "start": 91,
+                  "type": "FunctionExpression",
+                },
+              },
+              Node {
+                "computed": false,
+                "end": 196,
+                "key": Node {
+                  "end": 150,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 10,
+                      "line": 8,
+                    },
+                    "start": Position {
+                      "column": 4,
+                      "line": 8,
+                    },
+                  },
+                  "name": "render",
+                  "start": 144,
+                  "type": "Identifier",
+                },
+                "kind": "method",
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 5,
+                    "line": 10,
+                  },
+                  "start": Position {
+                    "column": 4,
+                    "line": 8,
+                  },
+                },
+                "start": 144,
+                "static": false,
+                "type": "MethodDefinition",
+                "value": Node {
+                  "async": false,
+                  "body": Node {
+                    "body": [
+                      Node {
+                        "argument": Node {
+                          "computed": false,
+                          "end": 189,
+                          "loc": SourceLocation {
+                            "end": Position {
+                              "column": 34,
+                              "line": 9,
+                            },
+                            "start": Position {
+                              "column": 15,
+                              "line": 9,
+                            },
+                          },
+                          "object": Node {
+                            "computed": false,
+                            "end": 180,
+                            "loc": SourceLocation {
+                              "end": Position {
+                                "column": 25,
+                                "line": 9,
+                              },
+                              "start": Position {
+                                "column": 15,
+                                "line": 9,
+                              },
+                            },
+                            "object": Node {
+                              "end": 174,
+                              "loc": SourceLocation {
+                                "end": Position {
+                                  "column": 19,
+                                  "line": 9,
+                                },
+                                "start": Position {
+                                  "column": 15,
+                                  "line": 9,
+                                },
+                              },
+                              "start": 170,
+                              "type": "ThisExpression",
+                            },
+                            "optional": false,
+                            "property": Node {
+                              "end": 180,
+                              "loc": SourceLocation {
+                                "end": Position {
+                                  "column": 25,
+                                  "line": 9,
+                                },
+                                "start": Position {
+                                  "column": 20,
+                                  "line": 9,
+                                },
+                              },
+                              "name": "props",
+                              "start": 175,
+                              "type": "Identifier",
+                            },
+                            "start": 170,
+                            "type": "MemberExpression",
+                          },
+                          "optional": false,
+                          "property": Node {
+                            "end": 189,
+                            "loc": SourceLocation {
+                              "end": Position {
+                                "column": 34,
+                                "line": 9,
+                              },
+                              "start": Position {
+                                "column": 26,
+                                "line": 9,
+                              },
+                            },
+                            "name": "children",
+                            "start": 181,
+                            "type": "Identifier",
+                          },
+                          "start": 170,
+                          "type": "MemberExpression",
+                        },
+                        "end": 190,
+                        "loc": SourceLocation {
+                          "end": Position {
+                            "column": 35,
+                            "line": 9,
+                          },
+                          "start": Position {
+                            "column": 8,
+                            "line": 9,
+                          },
+                        },
+                        "start": 163,
+                        "type": "ReturnStatement",
+                      },
+                    ],
+                    "end": 196,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 5,
+                        "line": 10,
+                      },
+                      "start": Position {
+                        "column": 13,
+                        "line": 8,
+                      },
+                    },
+                    "start": 153,
+                    "type": "BlockStatement",
+                  },
+                  "end": 196,
+                  "expression": false,
+                  "generator": false,
+                  "id": null,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 5,
+                      "line": 10,
+                    },
+                    "start": Position {
+                      "column": 10,
+                      "line": 8,
+                    },
+                  },
+                  "params": [],
+                  "start": 150,
+                  "type": "FunctionExpression",
+                },
+              },
+            ],
+            "end": 198,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 1,
+                "line": 11,
+              },
+              "start": Position {
+                "column": 37,
+                "line": 3,
+              },
+            },
+            "start": 70,
+            "type": "ClassBody",
+          },
+          "end": 198,
+          "id": Node {
+            "end": 45,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 12,
+                "line": 3,
+              },
+              "start": Position {
+                "column": 6,
+                "line": 3,
+              },
+            },
+            "name": "Plural",
+            "start": 39,
+            "type": "Identifier",
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 1,
+              "line": 11,
+            },
+            "start": Position {
+              "column": 0,
+              "line": 3,
+            },
+          },
+          "start": 33,
+          "superClass": Node {
+            "computed": false,
+            "end": 69,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 36,
+                "line": 3,
+              },
+              "start": Position {
+                "column": 21,
+                "line": 3,
+              },
+            },
+            "object": Node {
+              "end": 59,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 26,
+                  "line": 3,
+                },
+                "start": Position {
+                  "column": 21,
+                  "line": 3,
+                },
+              },
+              "name": "React",
+              "start": 54,
+              "type": "Identifier",
+            },
+            "optional": false,
+            "property": Node {
+              "end": 69,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 36,
+                  "line": 3,
+                },
+                "start": Position {
+                  "column": 27,
+                  "line": 3,
+                },
+              },
+              "name": "Component",
+              "start": 60,
+              "type": "Identifier",
+            },
+            "start": 54,
+            "type": "MemberExpression",
+          },
+          "type": "ClassDeclaration",
+        },
+        Node {
+          "declaration": Node {
+            "end": 221,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 21,
+                "line": 13,
+              },
+              "start": Position {
+                "column": 15,
+                "line": 13,
+              },
+            },
+            "name": "Plural",
+            "start": 215,
+            "type": "Identifier",
+          },
+          "end": 222,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 22,
+              "line": 13,
+            },
+            "start": Position {
+              "column": 0,
+              "line": 13,
+            },
+          },
+          "start": 200,
+          "type": "ExportDefaultDeclaration",
+        },
+      ],
+      "end": 222,
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 22,
+          "line": 13,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "sourceType": "module",
+      "start": 0,
+      "type": "Program",
+    },
+    "stats": undefined,
+    "type": "ast-jstree",
+  },
+  IntermediateRepresentation {
+    "filePath": "./test/testfiles/testfile2.js",
+    "ir": "import * as React from 'react';
+
+class Plural extends React.Component {
+    getSourceString() {
+        return this.getSourceString;
+    }
+
+    render() {
+        return this.props.children;
+    }
+}
+
+export default Plural;",
+    "stats": undefined,
+    "type": "string",
+  },
+]
+`;
+
 exports[`testJSParser JSParserMoreComplex 1`] = `
 {
   "filePath": "x/y",

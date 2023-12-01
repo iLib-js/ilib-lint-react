@@ -499,7 +499,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -603,7 +603,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -707,7 +707,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -811,7 +811,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -906,7 +906,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -1001,7 +1001,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -1100,7 +1100,7 @@ describe("testPropertiesParser", () => {
 
         expect(actual).toBeTruthy();
         expect(Array.isArray(actual)).toBeTruthy();
-        expect(actual.length).toBe(1);
+        expect(actual.length).toBe(2);
 
         const ir = actual[0];
         expect(ir.getType()).toBe("resource");
@@ -1112,4 +1112,25 @@ describe("testPropertiesParser", () => {
             expect(resources[i]).toStrictEqual(expected[i]); // `resource ${i}`
         }
     });
+
+    test("Properties parse and second intermediate representation is the file as a string", () => {
+        expect.assertions(7);
+
+        const parser = new PropertiesParser({
+            filePath: "./test/testfiles/test3_de-DE.properties",
+            sourceLocale: "en-US"
+        });
+        expect(parser).toBeTruthy();
+
+        const actual = parser.parse();
+        expect(actual).toBeTruthy();
+        expect(Array.isArray(actual)).toBeTruthy();
+        expect(actual.length).toBe(2);
+
+        expect(actual[0] instanceof IntermediateRepresentation).toBeTruthy();
+        expect(actual[1] instanceof IntermediateRepresentation).toBeTruthy();
+
+        expect(actual).toMatchSnapshot();
+    });
+
 });

@@ -104,5 +104,25 @@ describe("testFlowParser", () => {
 
         expect(actualSimplified).toMatchSnapshot();
     });
+
+    test("JS flow parse of real file", () => {
+        expect.assertions(7);
+
+        const parser = new FlowParser({
+            filePath: "./test/testfiles/testfile3.js"
+        });
+        expect(parser).toBeTruthy();
+
+        const actual = parser.parse();
+        expect(actual).toBeTruthy();
+        expect(Array.isArray(actual)).toBeTruthy();
+        expect(actual.length).toBe(2);
+
+        expect(actual[0] instanceof IntermediateRepresentation).toBeTruthy();
+        expect(actual[1] instanceof IntermediateRepresentation).toBeTruthy();
+
+        expect(actual).toMatchSnapshot();
+    });
+
 });
 
