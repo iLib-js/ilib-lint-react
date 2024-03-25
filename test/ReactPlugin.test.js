@@ -40,7 +40,7 @@ describe("testReactPlugin", () => {
     });
 
     test("ReactPluginGetRules", () => {
-        expect.assertions(3);
+        expect.assertions(4);
 
         const jp = new ReactPlugin();
         expect(jp).toBeTruthy();

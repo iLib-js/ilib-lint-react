@@ -27,6 +27,7 @@ import TSXParser from "./parsers/TSXParser.js";
 import BanFormattedCompMessage from "./rules/BanFormattedCompMessage.js";
 import NoHardCodedStrings from "./rules/NoHardCodedStrings.js";
 import NoNestedMessages from "./rules/NoNestedMessages.js";
+import NoBrokenMessages from "./rules/NoBrokenMessages.js";
 // import FormatjsPlurals from './rules/FormatjsPlurals.js';
 
 class ReactPlugin extends Plugin {
@@ -57,7 +58,8 @@ class ReactPlugin extends Plugin {
             // FormatjsPlurals // not ready for prime time yet
             BanFormattedCompMessage,
             NoHardCodedStrings,
-            NoNestedMessages
+            NoNestedMessages,
+            NoBrokenMessages
         ];
     }
 
