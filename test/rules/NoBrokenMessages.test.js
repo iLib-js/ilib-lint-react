@@ -105,7 +105,139 @@ debugger;
             expect(result).toStrictEqual(expected);
         });
 
+        test("Broken FormattedMessage next to each another", () => {
+debugger;
+            const ir = getFlowJsxIr(
+                "x/y.js",
+                `
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
+import Section from 'box-ui-elements/es/components/section';
+
+export const SharedLinksFormRestrictionRadioGroupSection = ({ onChange, value }: Props) => (
+    <Section
+        description={
+            <>
+                <FormattedMessage {...messages.sharedLinkRestrictionDescription} />
+                &nbsp;
+                <a
+                    href="https://support.box.com/hc/en-us/articles/36004"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    <FormattedMessage {...messages.sharedLinkRestrictionhHelpLink} />
+                </a>
+            </>
+        }
+        title={<FormattedMessage {...messages.sharedLinkRestriction} />}
+    >
+        <SharedLinksFormRestrictionRadioGroup onChange={onChange} value={value} />
+    </Section>
+);
+`
+            );
+
+            const rule = new NoBrokenMessages();
+
+            const result = rule.match({ ir });
+
+            const expected = [
+                new Result({
+                    severity: "error",
+                    description:
+                        "Found FormattedMessage components separated by non-breaking components. This indicates a broken string. Use one string with rich-text-formatting instead.",
+                    pathName: "x/y.js",
+                    rule,
+                    highlight:
+`
+            <>
+                <FormattedMessage {...messages.sharedLinkRestrictionDescription} />
+                &nbsp;
+                <a
+                    href="https://support.box.com/hc/en-us/articles/36004"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    <FormattedMessage {...messages.sharedLinkRestrictionhHelpLink} />
+                </a>
+            </>
+`,
+                    lineNumber: 10,
+                    charNumber: 16,
+                    endLineNumber: 14,
+                    endCharNumber: 18,
+                })
+            ];
+
+            expect(Array.isArray(result)).toBeTruthy();
+            expect(result.length).toBe(1);
+            expect(result).toStrictEqual(expected);
+        });
+
+
 /*
+
+These are a problem:
+
+                <InlineNotice className="saveFileToDeviceNotice">
+                    <FormattedMessage {...messages.restrictNoticeTitle} />
+                    <FormattedMessage {...messages.restrictNoticeAndroid} />
+                    <FormattedMessage {...messages.restrictNoticeIos} />
+                </InlineNotice>
+
+
+            <span>
+                <FormattedMessage {...messages.iWorkSectionDescription} />{' '}
+                <Link href={supportURL} rel="noopener" target="_blank">
+                    <FormattedMessage {...messages.learnMoreLink} />
+                </Link>
+            </span>
+
+These should not cause problem:
+
+    const description = (
+        <div className="form_tip">
+            <p className="legal">
+                <FormattedMessage {...messages.description} tagName="p" />
+                <FormattedMessage {...messages.tip} tagName="p" />
+            </p>
+        </div>
+    );
+
+            <Field
+                component={CheckboxField}
+                label={renderLabelWithTooltip(
+                    <FormattedMessage {...messages.categoryFeatured} />,
+                    <FormattedMessage {...messages.categoryFeaturedTooltip} />,
+                )}
+                name={CATEGORY_FEATURED_FIELD}
+            />
+
+
+    if (error) {
+        return (
+            <ErrorMask
+                errorHeader={<FormattedMessage {...messages.errorMaskHeader} />}
+                errorSubHeader={<FormattedMessage {...messages.errorMaskSubHeader} />}
+            />
+        );
+    }
+
+const successNotificationMessage = <FormattedMessage {...messages.successNotificationMessage} />;
+const failureNotificationMessage = <FormattedMessage {...messages.failureNotificationMessage} />;
+
+        const modalTitle =
+            type === TYPE_MOVE ? (
+                <FormattedMessage {...messages.moveOperationDetails} />
+            ) : (
+                <FormattedMessage {...messages.copyOperationDetails} />
+            );
+
+
+
+
+
         test("Broken FormattedMessage inside of another, using ids instead of the string directly in the code", () => {
             const ir = getFlowJsxIr(
                 "x/y.js",
